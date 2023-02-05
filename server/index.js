@@ -11,17 +11,13 @@ const app = express();
 dotenv.config();
 
 mongoose.set("strictQuery", false);
-mongoose.connect(
-  process.env.MONGO_URL,
-  {
+mongoose
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
-    useFindAndModify: true,
     useUnifiedTopology: true,
-  },
-  () => {
-    console.log("Connected to MongoDB");
-  }
-);
+  })
+  .then(console.log("Connected to MongoDB"))
+  .catch((err) => console.log(err));
 
 //MIDDLEWARE
 app.use(express.json());
