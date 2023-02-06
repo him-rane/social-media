@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./post.css";
 import { MoreVert } from "@mui/icons-material";
 import { Users } from "../../dummyData";
 
 const Post = ({ post }) => {
-  console.log(post);
+  const [like, setLike] = useState(post.like);
+  const [isLiked, setIsLiked] = useState(false);
+
+  const likeHandler = () => {
+    setLike(isLiked ? like - 1 : like + 1);
+    setIsLiked(!isLiked);
+  };
   return (
     <div className="post">
       <div className="postWrapper">
@@ -34,13 +40,15 @@ const Post = ({ post }) => {
               className="likeIcon"
               src="https://cdn-icons-png.flaticon.com/512/889/889140.png"
               alt=""
+              onClick={likeHandler}
             />
             <img
               className="likeIcon"
               src="https://cdn-icons-png.flaticon.com/512/2589/2589054.png"
               alt=""
+              onClick={likeHandler}
             />
-            <span className="likeCounter">{post.like} People Like it</span>
+            <span className="likeCounter">{like} People Like it</span>
           </div>
           <div className="postBottomRight">
             <span className="postCommentText">{post.comment} Comments</span>
