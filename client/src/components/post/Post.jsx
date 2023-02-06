@@ -1,32 +1,32 @@
 import React from "react";
 import "./post.css";
 import { MoreVert } from "@mui/icons-material";
+import { Users } from "../../dummyData";
 
-const Post = () => {
+const Post = ({ post }) => {
+  console.log(post);
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
             <img
-              src="https://img.freepik.com/free-photo/smiling-attractive-young-woman-texting-sms-phone_1262-19398.jpg?w=900&t=st=1675627131~exp=1675627731~hmac=48535852f1af06291904b1b74109616a38a83f1779ce5cb87611ca419b01f284"
+              src={Users.filter((u) => u.id === post.userId)[0].profilePicture}
               alt=""
               className="postProfileImg"
             />
-            <span className="postUsername">Himanshu Rane</span>
-            <span className="postDate">5 min ago</span>
+            <span className="postUsername">
+              {Users.filter((u) => u.id === post.userId)[0].username}
+            </span>
+            <span className="postDate">{post.date}</span>
           </div>
           <div className="postTopRight">
             <MoreVert></MoreVert>
           </div>
         </div>
         <div className="postCenter">
-          <span className="postText">Hey its my first post</span>
-          <img
-            src="https://img.freepik.com/free-photo/sunrise-dal-lake-kashmir-india_1232-4766.jpg?w=900&t=st=1675627055~exp=1675627655~hmac=afc80d971f32a280d1306ef5287a00a39dd43add903116912c020881bc14c74c"
-            alt=""
-            className="postImg"
-          />
+          <span className="postText">{post?.desc}</span>
+          <img src={post.photo} alt="" className="postImg" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
@@ -40,10 +40,10 @@ const Post = () => {
               src="https://cdn-icons-png.flaticon.com/512/2589/2589054.png"
               alt=""
             />
-            <span className="likeCounter">34 People Like it</span>
+            <span className="likeCounter">{post.like} People Like it</span>
           </div>
           <div className="postBottomRight">
-            <span className="postCommentText">19 Comments</span>
+            <span className="postCommentText">{post.comment} Comments</span>
           </div>
         </div>
       </div>

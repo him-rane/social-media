@@ -11,6 +11,8 @@ import {
   Event,
   School,
 } from "@mui/icons-material";
+import { Users } from "../../dummyData";
+import CloseFriend from "../closeFriend/CloseFriend";
 
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 
@@ -59,54 +61,9 @@ const Leftbar = () => {
         <button className="leftbarButton"> Show More</button>
         <hr className="leftbarHr" />
         <ul className="leftbarFriendList">
-          <li className="leftbarFriend">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-young-indian-top-manager-t-shirt-tie-crossed-arms-smiling-white-isolated-wall_496169-1513.jpg?w=900&t=st=1675623219~exp=1675623819~hmac=04b9aa6dd7201b10c0061dded19d1a0de547ccfe813ad96b9f43d40286525936"
-              alt=""
-              className="leftbarFriendImg"
-            />
-            <span className="leftbarFriendName"></span>
-          </li>
-          <li className="leftbarFriend">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-young-indian-top-manager-t-shirt-tie-crossed-arms-smiling-white-isolated-wall_496169-1513.jpg?w=900&t=st=1675623219~exp=1675623819~hmac=04b9aa6dd7201b10c0061dded19d1a0de547ccfe813ad96b9f43d40286525936"
-              alt=""
-              className="leftbarFriendImg"
-            />
-            <span className="leftbarFriendName"></span>
-          </li>
-          <li className="leftbarFriend">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-young-indian-top-manager-t-shirt-tie-crossed-arms-smiling-white-isolated-wall_496169-1513.jpg?w=900&t=st=1675623219~exp=1675623819~hmac=04b9aa6dd7201b10c0061dded19d1a0de547ccfe813ad96b9f43d40286525936"
-              alt=""
-              className="leftbarFriendImg"
-            />
-            <span className="leftbarFriendName"></span>
-          </li>
-          <li className="leftbarFriend">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-young-indian-top-manager-t-shirt-tie-crossed-arms-smiling-white-isolated-wall_496169-1513.jpg?w=900&t=st=1675623219~exp=1675623819~hmac=04b9aa6dd7201b10c0061dded19d1a0de547ccfe813ad96b9f43d40286525936"
-              alt=""
-              className="leftbarFriendImg"
-            />
-            <span className="leftbarFriendName"></span>
-          </li>
-          <li className="leftbarFriend">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-young-indian-top-manager-t-shirt-tie-crossed-arms-smiling-white-isolated-wall_496169-1513.jpg?w=900&t=st=1675623219~exp=1675623819~hmac=04b9aa6dd7201b10c0061dded19d1a0de547ccfe813ad96b9f43d40286525936"
-              alt=""
-              className="leftbarFriendImg"
-            />
-            <span className="leftbarFriendName"></span>
-          </li>
-          <li className="leftbarFriend">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-young-indian-top-manager-t-shirt-tie-crossed-arms-smiling-white-isolated-wall_496169-1513.jpg?w=900&t=st=1675623219~exp=1675623819~hmac=04b9aa6dd7201b10c0061dded19d1a0de547ccfe813ad96b9f43d40286525936"
-              alt=""
-              className="leftbarFriendImg"
-            />
-            <span className="leftbarFriendName"></span>
-          </li>
+          {Users.map((u) => (
+            <CloseFriend key={u.id} user={u} />
+          ))}
         </ul>
       </div>
     </div>
